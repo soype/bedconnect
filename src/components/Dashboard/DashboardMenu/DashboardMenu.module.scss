@@ -1,0 +1,22 @@
+@use '@/styles/main.scss' as *;
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    flex: .2;
+    padding: 1rem 0;
+    li{
+        list-style: none;
+        padding: .5rem 1rem;
+    }
+    button{
+        padding: .5rem 1rem;
+        background-color: $medium-green;
+        cursor: pointer;
+        width: 120px;
+        margin: auto;
+        border-radius: 1rem;
+        border: none;
+        margin-bottom: 1rem;    
+    }
+}
