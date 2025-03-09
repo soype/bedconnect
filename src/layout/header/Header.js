@@ -17,7 +17,6 @@ export default async function Header() {
                     <li><Link href="/about">About</Link></li>
                     <li><Link href="/contact">Contact</Link></li>
                     {sessionToken.length > 0 ? <li><Link href="/signin" className={styles.signin}>Sign in</Link></li> : <li><Link href="/dashboard" className={styles.signin}>Dashboard</Link></li>}
-                    
                 </ul>
             </nav>
         </header>
