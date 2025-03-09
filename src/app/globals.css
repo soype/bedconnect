@@ -1,3 +1,13 @@
 body{
   margin: unset;
 }
+
+.fullwidth{
+  width: 100%;
+}
+
+.w-std{
+  max-width: 1200px;
+  padding: 0 2rem;
+  margin: auto;
+}

@@ -1,7 +1,7 @@
-export default function about() {
+export default function contact() {
     return(
         <div className="w-std">
-            <h1>About</h1>
+            <h1>Contact</h1>
         </div>
     )
 }

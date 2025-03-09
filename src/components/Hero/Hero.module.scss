@@ -1,0 +1,15 @@
+@use "../../styles/main.scss" as *;
+
+.hero{
+    background: linear-gradient(121deg, rgba(53,96,90,1) 0%, rgba(53,96,90,1) 35%, rgba(181,189,137,1) 35% ,rgba(181,189,137,1) 70%, #DEE2CB 70%, #DEE2CB 100%); 
+    padding-top: calc(100px + 2rem);
+    color: $font-color-invert;    
+
+    &__container{
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
