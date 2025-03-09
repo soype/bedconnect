@@ -11,3 +11,7 @@ body{
   padding: 0 2rem;
   margin: auto;
 }
+
+.clear-nav{
+  padding-top: calc(100px + 2rem);
+}

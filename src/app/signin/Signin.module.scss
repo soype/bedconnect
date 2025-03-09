@@ -1,0 +1,26 @@
+@use "../../styles/main.scss" as *;
+
+.signin{
+    &__form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2rem auto;
+        padding: 2rem;
+        border-radius: 1rem;
+        max-width: 600px;
+        box-shadow: $box-shadow;
+        input{
+            margin-bottom: 1rem;
+            padding: .5rem;
+            border-radius: 1rem;
+            border: 1px solid #ccc;
+            width: 100%;
+            transition: all .3s;
+            &:focus{
+                outline: none;
+                border-color: #35605A;
+            }
+        }
+    }
+}

@@ -10,7 +10,7 @@ export default function Hero({ title, description, image }) {
           <p dangerouslySetInnerHTML={{ __html: description }} />
         </div>
         <div className={styles.hero__right}>
-          <Image src={image} alt="hero" width={500} height={300} />
+          {image && <Image src={image} alt="hero" width={500} height={300} />}
         </div>
       </div>
     </section>

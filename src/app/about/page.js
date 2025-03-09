@@ -1,7 +1,9 @@
+import Hero from "@/components/Hero/Hero"
+
 export default function about() {
     return(
-        <div className="w-std">
-            <h1>About</h1>
+        <div>
+            <Hero title={'About'} description={'About page'}></Hero>
         </div>
     )
 }

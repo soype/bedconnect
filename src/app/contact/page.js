@@ -1,7 +1,9 @@
+import Hero from "@/components/Hero/Hero"
+
 export default function contact() {
     return(
-        <div className="w-std">
-            <h1>Contact</h1>
+        <div>
+            <Hero title='Contact us' description='Contact us page'></Hero>
         </div>
     )
 }
