@@ -1,7 +1,6 @@
 "use client";
 import styles from "./Signin.module.scss";
 import { useState } from "react";
-import Cookie from "cookies";
 import { useRouter } from "next/navigation";
 
 export default function signin() {
