@@ -2,6 +2,7 @@
 
 
 import {useState} from 'react'
+import { useAuth } from '@/context/AuthContext'
 import styles from './Dashboard.module.scss'
 import DashboardMenu from './DashboardMenu/DashboardMenu'
 import DashboardPosts from './DashboardPosts/DashboardPosts'

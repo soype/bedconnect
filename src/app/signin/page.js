@@ -2,15 +2,18 @@
 import styles from "./Signin.module.scss";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export default function signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const auth = useAuth();
 
   const handleSignIn = (e) => {
     e.preventDefault();
+    auth.setIsLogged(true);
     fetch("/api/login", {
       method: "POST",
       headers: {
