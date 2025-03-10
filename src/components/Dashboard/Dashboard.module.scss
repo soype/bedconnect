@@ -1,13 +1,13 @@
 @use '../../styles/main.scss' as *;
 
 .dashboard{
-    background-color: $dark-green;
+    background: linear-gradient(106.37deg,#4356a3 29.63%,#3e2da0 51.55%,#6732a0 90.85%);
     height: 100%;
     padding-bottom: 2rem;
 
     &__container{
-        max-width: 1200px;
-        background-color: $grey;
+        max-width: calc(1200px + 2rem);
+        background-color: hsla(0,0%,100%,.54);
         margin: auto;
         border-radius: 1rem;
         display: flex;

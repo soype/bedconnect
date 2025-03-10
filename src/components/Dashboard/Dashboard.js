@@ -5,6 +5,7 @@ import {useState} from 'react'
 import { useAuth } from '@/context/AuthContext'
 import styles from './Dashboard.module.scss'
 import DashboardMenu from './DashboardMenu/DashboardMenu'
+import DashboardMain from './DashboardMain/DashboardMain'
 import DashboardPosts from './DashboardPosts/DashboardPosts'
 import DashboardCalendar from './DashboardCalendar/DashboardCalendar'
 
@@ -14,6 +15,8 @@ export default function Dashboard(){
 
     const renderActiveTab = () => {
         switch(activeTab) {
+            case 'dashboard': 
+                return <DashboardMain></DashboardMain>;
             case 'posts': 
                 return <DashboardPosts></DashboardPosts>;
             case 'calendar': 
