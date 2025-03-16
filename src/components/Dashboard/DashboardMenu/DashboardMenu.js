@@ -2,8 +2,11 @@
 import styles from './DashboardMenu.module.scss'
 import { useRouter } from "next/navigation";
 import { useAuth } from '@/context/AuthContext';
+import { useState } from 'react';
 
 export default function DashboardMenu({updateTab}){
+
+    const [selected, setSelected] = useState('dashboard');
 
     const router = useRouter();
     const auth = useAuth();
@@ -12,6 +15,11 @@ export default function DashboardMenu({updateTab}){
         document.cookie = 'sessionToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         auth.setIsLogged(false);        
         router.push("/");
+    }
+
+    const updateTabHandler = (value) => {
+        setSelected(value);
+        updateTab(value);
     }
 
     const options = [
@@ -26,7 +34,7 @@ export default function DashboardMenu({updateTab}){
             <ul>
                 {options.map((option, index) => {
                     return(
-                        <li key={index} onClick = {() => updateTab(option.value)}>
+                        <li key={index} style={option.value === selected ? {backgroundColor: '#DEE2CB'} : {}} onClick = {() => updateTabHandler(option.value)}>
                             {option.svg}
                             <span>{option.name}</span>
                         </li>

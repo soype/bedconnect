@@ -8,6 +8,21 @@
     li{
         list-style: none;
         padding: .5rem 1rem;
+        margin-bottom: .5rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 1rem;
+        transition: all .5s;
+        width: 120px;
+        &:hover{
+            background-color: $light-green;
+            transition: all .5s;
+        }
+    }
+
+    .selected{
+        background-color: $light-green;
     }
     button{
         padding: .5rem 1rem;
