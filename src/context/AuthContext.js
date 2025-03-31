@@ -1,11 +1,22 @@
 'use client'
 
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useState, useEffect } from "react"
 
 const AuthContext = createContext()
 
 export default function AuthProvider ({children}) {
+
   const [isLogged, setIsLogged] = useState(false);
+
+  useEffect(() => {
+    const session = document.cookie
+      .split(";")
+      .map((cookie) => cookie.trim()) // Trim spaces from each cookie
+      .find((cookie) => cookie.startsWith("sessionToken="));
+    if (session) {
+      setIsLogged(true);
+    }
+  }, []);
 
   return (
     <AuthContext.Provider value={{isLogged, setIsLogged}}>

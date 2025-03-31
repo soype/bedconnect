@@ -1,6 +1,6 @@
 "use client";
 import styles from "./Signin.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
@@ -11,9 +11,19 @@ export default function signin() {
   const router = useRouter();
   const auth = useAuth();
 
+  useEffect(() => {
+    const session = document.cookie
+      .split(";")
+      .map((cookie) => cookie.trim()) // Trim spaces from each cookie
+      .find((cookie) => cookie.startsWith("sessionToken="));
+    if (session) {
+      auth.setIsLogged(true);
+      router.push("/dashboard");
+    }
+  });
+
   const handleSignIn = (e) => {
     e.preventDefault();
-    auth.setIsLogged(true);
     fetch("/api/login", {
       method: "POST",
       headers: {
@@ -25,12 +35,13 @@ export default function signin() {
       }),
     }).then(async (response) => {
       if (response.ok) {
-        const { session } = await response.json();
-        if(process.env.NODE_ENV === "production"){
-          document.cookie = `sessionToken=${session}; secure: true; httpOnly: true; sameSite: lax; path=/;`; 
-        }else{
-          document.cookie = `sessionToken=${session}; path=/;`;
+        const { token } = await response.json();
+        if (process.env.NODE_ENV === "production") {
+          document.cookie = `sessionToken=${token}; secure: true; httpOnly: true; sameSite: lax; path=/;`;
+        } else {
+          document.cookie = `sessionToken=${token}; path=/;`;
         }
+        auth.setIsLogged(true);
         router.push("/");
       } else {
         alert("Login failed");
@@ -54,20 +65,20 @@ export default function signin() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email: email, password: password }),
-    }).then(async response => {
+    }).then(async (response) => {
       if (response.ok) {
         const { session } = await response.json();
-        if(process.env.NODE_ENV === "production"){
-          document.cookie = `sessionToken=${session}; secure: true; httpOnly: true; sameSite: lax; path=/;`; 
-        }else{
+        if (process.env.NODE_ENV === "production") {
+          document.cookie = `sessionToken=${session}; secure: true; httpOnly: true; sameSite: lax; path=/;`;
+        } else {
           document.cookie = `sessionToken=${session}; path=/;`;
         }
         router.push("/");
       } else {
         alert("Login failed");
       }
-    })
-  }
+    });
+  };
 
   return (
     <div className={`${styles.signin} w-std clear-nav`}>
