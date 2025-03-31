@@ -26,7 +26,11 @@ export default function signin() {
     }).then(async (response) => {
       if (response.ok) {
         const { session } = await response.json();
-        document.cookie = `sessionToken=${session}; path=/;`;
+        if(process.env.NODE_ENV === "production"){
+          document.cookie = `sessionToken=${session}; secure: true; httpOnly: true; sameSite: lax; path=/;`; 
+        }else{
+          document.cookie = `sessionToken=${session}; path=/;`;
+        }
         router.push("/");
       } else {
         alert("Login failed");
@@ -42,6 +46,29 @@ export default function signin() {
     }, 1000);
   };
 
+  const registerHandler = (e) => {
+    e.preventDefault();
+    fetch("/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email, password: password }),
+    }).then(async response => {
+      if (response.ok) {
+        const { session } = await response.json();
+        if(process.env.NODE_ENV === "production"){
+          document.cookie = `sessionToken=${session}; secure: true; httpOnly: true; sameSite: lax; path=/;`; 
+        }else{
+          document.cookie = `sessionToken=${session}; path=/;`;
+        }
+        router.push("/");
+      } else {
+        alert("Login failed");
+      }
+    })
+  }
+
   return (
     <div className={`${styles.signin} w-std clear-nav`}>
       <h1>Sign in</h1>
@@ -49,7 +76,10 @@ export default function signin() {
         <input type="email" placeholder="Email" value={email} onChange={emailHandler} required />
         {loading && <span>Loader</span>}
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <button>Sign In</button>
+        <div className={styles.signin__buttons}>
+          <button>Sign In</button>
+          <button onClick={registerHandler}>Register Now</button>
+        </div>
       </form>
     </div>
   );

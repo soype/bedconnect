@@ -1,6 +1,13 @@
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../../.env.local') }); // Load .env.local from the root directory
+const dotenv = require('dotenv');
 const { Pool } = require('pg');
+
+// Configure dotenv on production
+if (process.env.NODE_ENV === 'production') {
+  dotenv.config('.env.local');
+}else{
+  dotenv.config();
+}
 
 const pool = new Pool({
   user: process.env.POSTGRES_USER,
