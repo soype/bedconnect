@@ -16,7 +16,7 @@ export default function AuthProvider ({children}) {
     if (session) {
       setIsLogged(true);
     }
-  }, []);
+  }, [isLogged]);
 
   return (
     <AuthContext.Provider value={{isLogged, setIsLogged}}>
