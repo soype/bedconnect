@@ -3,10 +3,8 @@ const dotenv = require('dotenv');
 const { Pool } = require('pg');
 
 // Configure dotenv on production
-if (process.env.NODE_ENV === 'production') {
-  dotenv.config('.env.local');
-}else{
-  dotenv.config();
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: path.resolve(__dirname, '../../.env.local') });
 }
 
 const pool = new Pool({
