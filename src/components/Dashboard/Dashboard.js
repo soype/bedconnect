@@ -12,13 +12,12 @@ import DashboardCalendar from "./DashboardCalendar/DashboardCalendar";
 export default function Dashboard() {
   const router = useRouter();
 
-  const [activeTab, setActiveTab] = useState("posts");
+  const [activeTab, setActiveTab] = useState("dashboard");
 
   useEffect(() => {
-    // Check in coockies if user is logged in
     const session = document.cookie
       .split(";")
-      .map((cookie) => cookie.trim()) // Trim spaces from each cookie
+      .map((cookie) => cookie.trim())
       .find((cookie) => cookie.startsWith("sessionToken="));
     if(!session){
       router.push("/signin");

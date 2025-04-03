@@ -14,7 +14,7 @@ export default function signin() {
   useEffect(() => {
     const session = document.cookie
       .split(";")
-      .map((cookie) => cookie.trim()) // Trim spaces from each cookie
+      .map((cookie) => cookie.trim()) 
       .find((cookie) => cookie.startsWith("sessionToken="));
     if (session) {
       auth.setIsLogged(true);
