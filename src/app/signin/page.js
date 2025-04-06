@@ -51,10 +51,10 @@ export default function signin() {
 
   const emailHandler = (e) => {
     setEmail(e.target.value);
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+    // setLoading(true);
+    // setTimeout(() => {
+    //   setLoading(false);
+    // }, 1000);
   };
 
   const registerHandler = (e) => {
