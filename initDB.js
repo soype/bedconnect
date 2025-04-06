@@ -31,17 +31,17 @@ const initDb = async () => {
         provider VARCHAR(255) NOT NULL,
         name VARCHAR(255) NOT NULL,
         cost DECIMAL(10, 2) NOT NULL,
-        priceA DECIMAL(10, 2) NOT NULL,
-        priceB DECIMAL(10, 2) NOT NULL,
-        priceC DECIMAL(10, 2),
-        priceD DECIMAL(10, 2),
-        priceE DECIMAL(10, 2),
-        priceNG DECIMAL(10, 2),
-        priceP DECIMAL(10, 2),
-        costoVital DECIMAL(10, 2),
-        costoNG DECIMAL(10, 2),
+        price_a DECIMAL(10, 2) NOT NULL,
+        price_b DECIMAL(10, 2) NOT NULL,
+        price_c DECIMAL(10, 2),
+        price_d DECIMAL(10, 2),
+        price_e DECIMAL(10, 2),
+        price_ng DECIMAL(10, 2),
+        price_p DECIMAL(10, 2),
+        costo_vital DECIMAL(10, 2),
+        costo_ng DECIMAL(10, 2),
         volume DECIMAL(10, 2) NOT NULL,
-        criticalStock INT NOT NULL,
+        critical_stock INT NOT NULL,
         gluten BOOLEAN DEFAULT false,
         vegan BOOLEAN DEFAULT false,
         organic BOOLEAN DEFAULT false,
@@ -54,7 +54,7 @@ const initDb = async () => {
         description TEXT,
         image VARCHAR(255),
         created_at TIMESTAMPTZ DEFAULT NOW()
-      )
+      );
     `);
 
     await client.query(`
@@ -143,13 +143,44 @@ const initDb = async () => {
     // }
 
     for (const product of dummyProducts) {
-      // Example of a product
-      // {"code": "P", "provider": "SHIVA", "name": "SHIVA PIMENTON 100G", "cost": 1150, "priceA": 1453, "priceB": 1428, "priceC": 1311, "priceD": null, "priceE": 1291, "priceNG": null, "priceP": 2093, "costoVital": 1173, "volume": 0.033, "costoNG": null, "criticalStock": 200, "gluten": true, "vegan": true, "organic": false, "keto": false, "kosher": true, "aplv": false, "nosugar": false, "noconservants": true, "expireTime": 6},
       await client.query(
-        `INSERT INTO products (code, provider, name, cost, priceA, priceB, priceC, priceD, priceE, priceNG, priceP, costoVital, costoNG, volume, criticalStock, gluten, vegan, organic, keto, kosher, aplv, nosugar, noconservants, expireTime, description, image)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26)
-        RETURNING id`,
-        [product.code, product.provider, product.name, product.cost, product.priceA, product.priceB, product.priceC, product.priceD, product.priceE, product.priceNG, product.priceP, product.costoVital, product.costoNG, product.volume, product.criticalStock, product.gluten, product.vegan, product.organic, product.keto, product.kosher, product.aplv, product.nosugar, product.noconservants, product.expireTime, product.description, product.image]
+        `INSERT INTO products (
+          code, provider, name, cost, 
+          price_a, price_b, price_c, price_d, price_e, price_ng, price_p, 
+          costo_vital, costo_ng, 
+          volume, critical_stock, 
+          gluten, vegan, organic, keto, kosher, aplv, nosugar, noconservants, 
+          expireTime, description, image
+        )
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26)`,
+        [
+          product.code,
+          product.provider,
+          product.name,
+          product.cost,
+          product.priceA,  // Map from priceA (camelCase)
+          product.priceB,
+          product.priceC,
+          product.priceD,
+          product.priceE,
+          product.priceNG,
+          product.priceP,
+          product.costoVital,
+          product.costoNG,
+          product.volume,
+          product.criticalStock,
+          product.gluten,
+          product.vegan,
+          product.organic,
+          product.keto,
+          product.kosher,
+          product.aplv,
+          product.nosugar,
+          product.noconservants,
+          product.expireTime,
+          product.description || null,  // Only description and image can be truly optional
+          product.image || null
+        ]
       );
     }
 
