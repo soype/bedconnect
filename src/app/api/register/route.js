@@ -1,6 +1,6 @@
 const pool = require("@/lib/db.js");
 const bcrypt = require("bcrypt");
-const { isEmail } = require("validator"); // Or use a regex
+const { isEmail } = require("validator"); 
 
 export async function POST(request) {
   let client;
@@ -8,7 +8,6 @@ export async function POST(request) {
     client = await pool.connect();
     const body = await request.json();
 
-    // Validate input
     if (!body.email || !body.password) {
       return new Response(
         JSON.stringify({ error: "Email and password are required" }),
@@ -23,7 +22,6 @@ export async function POST(request) {
       );
     }
 
-    // Check for existing user
     const userExists = await client.query(
       `SELECT id FROM users WHERE email = $1;`,
       [body.email.toLowerCase().trim()]
@@ -36,11 +34,9 @@ export async function POST(request) {
       );
     }
 
-    // Hash password securely
     const saltRounds = 12;
     const hashedPassword = await bcrypt.hash(body.password, saltRounds);
 
-    // Insert user
     const res = await client.query(
       `INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id;`,
       [body.email.toLowerCase().trim(), hashedPassword]
