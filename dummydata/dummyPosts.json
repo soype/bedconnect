@@ -1,0 +1,312 @@
+[
+    {
+      "id": 1,
+      "user": 1,
+      "title": "Cozy Studio Apartment in Downtown",
+      "booked": [
+        {
+          "arrives": "2025-02-15",
+          "leaves": "2025-02-20",
+          "booker": "John Pesci"
+        },
+        {
+          "arrives": "2025-06-10",
+          "leaves": "2025-06-15",
+          "booker": "Carmella Soprano"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?apartment,cozy"
+    },
+    {
+      "id": 2,
+      "user": 1,
+      "title": "Modern Loft with City Views",
+      "booked": [
+        {
+          "arrives": "2025-03-01",
+          "leaves": "2025-03-05",
+          "booker": "Tony Soprano"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?loft,modern"
+    },
+    {
+      "id": 3,
+      "user": 1,
+      "title": "Rustic Cabin in the Woods",
+      "booked": [
+        {
+          "arrives": "2025-07-22",
+          "leaves": "2025-07-29",
+          "booker": "Silvio Dante"
+        },
+        {
+          "arrives": "2025-11-10",
+          "leaves": "2025-11-15",
+          "booker": "Paulie Walnuts"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?cabin,rustic"
+    },
+    {
+      "id": 4,
+      "user": 1,
+      "title": "Beachfront Villa with Private Pool",
+      "booked": [
+        {
+          "arrives": "2025-05-12",
+          "leaves": "2025-05-18",
+          "booker": "Adriana La Cerva"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?villa,beach"
+    },
+    {
+      "id": 5,
+      "user": 2,
+      "title": "Charming Cottage in the Countryside",
+      "booked": [
+        {
+          "arrives": "2025-08-03",
+          "leaves": "2025-08-10",
+          "booker": "Meadow Soprano"
+        },
+        {
+          "arrives": "2025-09-15",
+          "leaves": "2025-09-20",
+          "booker": "AJ Soprano"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?cottage,countryside"
+    },
+    {
+      "id": 6,
+      "user": 2,
+      "title": "Luxury Penthouse with Rooftop Terrace",
+      "booked": [
+        {
+          "arrives": "2025-04-20",
+          "leaves": "2025-04-25",
+          "booker": "Christopher Moltisanti"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?penthouse,luxury"
+    },
+    {
+      "id": 7,
+      "user": 2,
+      "title": "Quaint Bungalow Near the Lake",
+      "booked": [
+        {
+          "arrives": "2025-01-10",
+          "leaves": "2025-01-15",
+          "booker": "Furio Giunta"
+        },
+        {
+          "arrives": "2025-12-05",
+          "leaves": "2025-12-10",
+          "booker": "Artie Bucco"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?bungalow,lake"
+    },
+    {
+      "id": 8,
+      "user": 2,
+      "title": "Spacious Family Home with Garden",
+      "booked": [
+        {
+          "arrives": "2025-10-01",
+          "leaves": "2025-10-07",
+          "booker": "Janice Soprano"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?home,garden"
+    },
+    {
+      "id": 9,
+      "user": 1,
+      "title": "Eco-Friendly Tiny House",
+      "booked": [
+        {
+          "arrives": "2025-03-18",
+          "leaves": "2025-03-22",
+          "booker": "Bobby Baccalieri"
+        },
+        {
+          "arrives": "2025-07-05",
+          "leaves": "2025-07-10",
+          "booker": "Ralph Cifaretto"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?tinyhouse,eco"
+    },
+    {
+      "id": 10,
+      "user": 2,
+      "title": "Historic Townhouse in the City Center",
+      "booked": [
+        {
+          "arrives": "2025-06-25",
+          "leaves": "2025-06-30",
+          "booker": "Vito Spatafore"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?townhouse,historic"
+    },
+    {
+      "id": 11,
+      "user": 3,
+      "title": "Mountain Retreat with Stunning Views",
+      "booked": [
+        {
+          "arrives": "2025-09-01",
+          "leaves": "2025-09-07",
+          "booker": "Phil Leotardo"
+        },
+        {
+          "arrives": "2025-12-20",
+          "leaves": "2025-12-25",
+          "booker": "Johnny Sack"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?mountain,retreat"
+    },
+    {
+      "id": 12,
+      "user": 1,
+      "title": "Seaside Apartment with Ocean Views",
+      "booked": [
+        {
+          "arrives": "2025-02-10",
+          "leaves": "2025-02-15",
+          "booker": "Richie Aprile"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?seaside,apartment"
+    },
+    {
+      "id": 13,
+      "user": 3,
+      "title": "Modern Condo with Gym Access",
+      "booked": [
+        {
+          "arrives": "2025-04-05",
+          "leaves": "2025-04-10",
+          "booker": "Livia Soprano"
+        },
+        {
+          "arrives": "2025-11-01",
+          "leaves": "2025-11-05",
+          "booker": "Junior Soprano"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?condo,modern"
+    },
+    {
+      "id": 14,
+      "user": 3,
+      "title": "Romantic Getaway in the Vineyards",
+      "booked": [
+        {
+          "arrives": "2025-05-20",
+          "leaves": "2025-05-25",
+          "booker": "Gloria Trillo"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?vineyard,romantic"
+    },
+    {
+      "id": 15,
+      "user": 3,
+      "title": "Ski Chalet with Hot Tub",
+      "booked": [
+        {
+          "arrives": "2025-01-25",
+          "leaves": "2025-01-30",
+          "booker": "Patsy Parisi"
+        },
+        {
+          "arrives": "2025-12-15",
+          "leaves": "2025-12-20",
+          "booker": "Gigi Cestone"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?chalet,ski"
+    },
+    {
+      "id": 16,
+      "user": 3,
+      "title": "Urban Apartment Near Nightlife",
+      "booked": [
+        {
+          "arrives": "2025-08-12",
+          "leaves": "2025-08-18",
+          "booker": "Benny Fazio"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?apartment,urban"
+    },
+    {
+      "id": 17,
+      "user": 2,
+      "title": "Lakeside Cabin with Canoe Access",
+      "booked": [
+        {
+          "arrives": "2025-07-01",
+          "leaves": "2025-07-07",
+          "booker": "Hesh Rabkin"
+        },
+        {
+          "arrives": "2025-10-10",
+          "leaves": "2025-10-15",
+          "booker": "Davey Scatino"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?cabin,lake"
+    },
+    {
+      "id": 18,
+      "user": 3,
+      "title": "Artistic Loft in the Arts District",
+      "booked": [
+        {
+          "arrives": "2025-03-10",
+          "leaves": "2025-03-15",
+          "booker": "Massive Genius"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?loft,artistic"
+    },
+    {
+      "id": 19,
+      "user": 1,
+      "title": "Family-Friendly House with Playground",
+      "booked": [
+        {
+          "arrives": "2025-06-01",
+          "leaves": "2025-06-07",
+          "booker": "Carmine Lupertazzi"
+        },
+        {
+          "arrives": "2025-09-20",
+          "leaves": "2025-09-25",
+          "booker": "Little Carmine"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?house,family"
+    },
+    {
+      "id": 20,
+      "user": 3,
+      "title": "Minimalist Apartment with Skyline Views",
+      "booked": [
+        {
+          "arrives": "2025-02-20",
+          "leaves": "2025-02-25",
+          "booker": "Noah Tannenbaum"
+        }
+      ],
+      "photo": "https://source.unsplash.com/800x600/?apartment,minimalist"
+    }
+  ]

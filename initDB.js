@@ -17,9 +17,53 @@ const initDb = async () => {
         password VARCHAR(255) NOT NULL,
         verification_token VARCHAR(64),
         verified BOOLEAN DEFAULT false,
+        permissions VARCHAR(255)[],
         created_at TIMESTAMPTZ DEFAULT NOW()
       )
     `);
+
+    await client.query(`
+      CREATE TABLE products (
+        id SERIAL PRIMARY KEY,
+        code VARCHAR(10) NOT NULL UNIQUE,
+        provider VARCHAR(255) NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        cost DECIMAL(10, 2) NOT NULL,
+        priceA DECIMAL(10, 2) NOT NULL,
+        priceB DECIMAL(10, 2) NOT NULL,
+        priceC DECIMAL(10, 2),
+        priceD DECIMAL(10, 2),
+        priceE DECIMAL(10, 2),
+        priceNG DECIMAL(10, 2),
+        priceP DECIMAL(10, 2),
+        costoVital DECIMAL(10, 2),
+        costoNG DECIMAL(10, 2),
+        volume DECIMAL(10, 2) NOT NULL,
+        criticalStock INT NOT NULL,
+        gluten BOOLEAN DEFAULT false,
+        vegan BOOLEAN DEFAULT false,
+        organic BOOLEAN DEFAULT false,
+        keto BOOLEAN DEFAULT false,
+        kosher BOOLEAN DEFAULT false,
+        aplv BOOLEAN DEFAULT false,
+        nosugar BOOLEAN DEFAULT false,
+        noconservants BOOLEAN DEFAULT false,
+        expireTime INT,
+        description TEXT,
+        image VARCHAR(255),
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `);
+
+    await client.query(`
+      CREATE TABLE orders (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+        product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
+        quantity INT NOT NULL,
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `)
 
     await client.query(`
       CREATE TABLE sessions (

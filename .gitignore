@@ -41,7 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 # dummy data 
-/dummydata
+# /dummydata
 
 # database
 database-readme.md
