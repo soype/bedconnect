@@ -15,11 +15,11 @@ export default function Catalogue() {
         const fetchData = async () => {
             const response = await fetch('/api/products');
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
             setProducts(data);
         };
         fetchData();
-    }, []);
+    }, [isLogged]);
 
     return(
         <div className={styles.catalogue__container}>

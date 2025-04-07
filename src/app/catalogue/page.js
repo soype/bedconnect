@@ -1,3 +1,5 @@
+'use client'
+
 import styles from "./Catalogue.module.scss";
 import Hero from "@/components/Hero/Hero";
 import CatalogueItem from "@/components/Catalogue/CatalogueItem/CatalogueItem";
