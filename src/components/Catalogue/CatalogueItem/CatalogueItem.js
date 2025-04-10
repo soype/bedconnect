@@ -1,6 +1,7 @@
 'use client'
 
 import styles from './CatalogueItem.module.scss';
+import CatalogueForm from '../CatalogueForm/CatalogueForm';
 
 export default function CatalogueItem({ product, userCategory }) {
     const getPrice = () => {
@@ -15,6 +16,9 @@ export default function CatalogueItem({ product, userCategory }) {
             default: return product.price_a;
         }
     };
+    if(product.id === 1){
+        console.log(product)
+    }
 
     // Me aseguro que el precio esté ok o que sea 0.
     const price = getPrice();
@@ -24,14 +28,15 @@ export default function CatalogueItem({ product, userCategory }) {
     return (
         <tr className={styles.catalogueItem}>
             <td>{product.name}</td>
-            <td>${formattedPrice}</td>
-            <td>{product.gluten ? '✓' : '-'}</td>
-            <td>{product.vegan ? '✓' : '-'}</td>
-            <td>{product.organic ? '✓' : '-'}</td>
-            <td>{product.keto ? '✓' : '-'}</td>
-            <td>{product.aplv ? '✓' : '-'}</td>
-            <td>{product.nosugar ? '✓' : '-'}</td>
-            <td>{product.noconservants ? '✓' : '-'}</td>
+            <td className={styles.price}>{formattedPrice}</td>
+            <CatalogueForm></CatalogueForm>
+            <td className={styles.check}>{product.gluten ? '✓' : '-'}</td>
+            <td className={styles.check}>{product.vegan ? '✓' : '-'}</td>
+            <td className={styles.check}>{product.organic ? '✓' : '-'}</td>
+            <td className={styles.check}>{product.keto ? '✓' : '-'}</td>
+            <td className={styles.check}>{product.aplv ? '✓' : '-'}</td>
+            <td className={styles.check}>{product.nosugar ? '✓' : '-'}</td>
+            <td className={styles.check}>{product.noconservants ? '✓' : '-'}</td>
             {userCategory === 'a' && (
                 <td>{product.expireTime || '-'}</td>
             )}

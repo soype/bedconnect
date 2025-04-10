@@ -28,14 +28,14 @@ export default function Catalogue() {
                     <tr>
                         <th>PRODUCTO</th>
                         <th>Precio x unidad</th>
-                        <th>SIN GLUTEN</th>
-                        <th>VEGANO</th>
-                        <th>ORGÁNICO</th>
-                        <th>KETO</th>
-                        <th>APLV</th>
-                        <th>SIN AZÚCAR AGREGADA</th>
-                        <th>SIN CONSERVANTES</th>
-                        <th>Vto. (meses)</th>
+                        <th className={styles.verticalText}>SIN GLUTEN</th>
+                        <th className={styles.verticalText}>VEGANO</th>
+                        <th className={styles.verticalText}>ORGÁNICO</th>
+                        <th className={styles.verticalText}>KETO</th>
+                        <th className={styles.verticalText}>APLV</th>
+                        <th className={styles.verticalText}>SIN AZÚCAR AGREGADA</th>
+                        <th className={styles.verticalText}>SIN CONSERVANTES</th>
+                        <th>Vto. <br></br> (meses)</th>
                     </tr>
                 </thead>
                 <tbody>
