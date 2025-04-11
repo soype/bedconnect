@@ -29,7 +29,7 @@ export default function CatalogueItem({ product, userCategory }) {
         <tr className={styles.catalogueItem}>
             <td>{product.name}</td>
             <td className={styles.price}>{formattedPrice}</td>
-            <CatalogueForm></CatalogueForm>
+            <CatalogueForm product={product}></CatalogueForm>
             <td className={styles.check}>{product.gluten ? '✓' : '-'}</td>
             <td className={styles.check}>{product.vegan ? '✓' : '-'}</td>
             <td className={styles.check}>{product.organic ? '✓' : '-'}</td>
