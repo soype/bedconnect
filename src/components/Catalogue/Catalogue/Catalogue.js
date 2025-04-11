@@ -41,13 +41,14 @@ export default function Catalogue() {
 
     return(
         <div className={styles.catalogue}>
-            <CatalogueSearch updateList={updateListHandler} hasSearched={hasSearched}></CatalogueSearch>
             <div className={styles.catalogue__container}>
+                <CatalogueSearch updateList={updateListHandler} hasSearched={hasSearched}></CatalogueSearch>
                 <table className={styles.catalogueTable}>
                     <thead>
                         <tr>
                             <th>PRODUCTO</th>
                             <th>Precio x unidad</th>
+                            <th className={styles.verticalText}>AGREGAR</th>
                             <th className={styles.verticalText}>SIN GLUTEN</th>
                             <th className={styles.verticalText}>VEGANO</th>
                             <th className={styles.verticalText}>ORGÁNICO</th>

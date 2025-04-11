@@ -16,9 +16,16 @@ export default function CatalogueForm({product}) {
         }
     }, [cart])
 
-    const addAmountHandler = () => {
+    const getModifierAmount = (e) => {
+        if (e.shiftKey) return 20;
+        if (e.metaKey || e.ctrlKey) return 5;
+        return 1;
+    };
 
-        const newAmount = amount + 1;
+    const addAmountHandler = (e) => {
+
+        const modifierAmount = getModifierAmount(e);
+        const newAmount = amount + modifierAmount;
         setAmount(newAmount);
 
         const productInCart = cart.find(item => item.id === product.id);
@@ -33,22 +40,23 @@ export default function CatalogueForm({product}) {
         
     }
 
-    const removeAmountHandler = () => {
-        if(amount >= 1){
-            const newAmount = amount - 1;
-            setAmount(newAmount);
+    const removeAmountHandler = (e) => {
+        const modifierAmount = getModifierAmount(e);
+        const newAmount = Math.max(amount - modifierAmount, 0);
+        setAmount(newAmount);
 
-            const productInCart = cart.find(item => item.id === product.id);
-            if(productInCart.amount > 1){
-                const newCart = [...cart];
-                const index = newCart.findIndex(item => item.id === product.id);
-                newCart[index].amount = newAmount;
-                setCart(newCart);
-            }else{
-                setCart(cart.filter(item => item.id !== product.id));
-            }
+        const productInCart = cart.find(item => item.id === product.id);
+        if (!productInCart) return;
+
+        if (newAmount > 0) {
+            const newCart = [...cart];
+            const index = newCart.findIndex(item => item.id === product.id);
+            newCart[index].amount = newAmount;
+            setCart(newCart);
+        } else {
+            setCart(cart.filter(item => item.id !== product.id));
         }
-    }
+    };
 
     return (
         <td className={styles.catalogueForm}>
