@@ -1,44 +1,47 @@
 @use "../../styles/main.scss" as *;
 
-.header{
+.header {
+  nav {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 
-    nav{
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: $box-shadow;
-        max-width: 1200px;
-        width: 100%;
-        background-color: white;
-        margin: 1rem auto;
-        padding: 0 2rem;
-        border-radius: 2rem;
-        height: 100px;
-        ul{
-            display: flex;
-            list-style: none;
-            li{
-                margin-right: 10px;
-                a{
-                    color: $font-color-main;
-                    text-decoration: none;
-                }
-            }
-        }
+    box-shadow: $box-shadow;
+    max-width: 1200px;
+    width: 100%;
+    background-color: white;
+    margin: 1rem auto;
+    border-radius: 2rem;
+    height: 100px;
+    .headerContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      padding: 0 2rem;
     }
+    ul {
+      display: flex;
+      list-style: none;
+      li {
+        margin-right: 10px;
+        a {
+          color: $font-color-main;
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
 
-.signin{
-    padding: .5rem 1rem;
-    background-color: #35605A;
-    border-radius: 1rem;
-    color: white !important;
-    transition: all .3s;
-    &:hover{
-        background-color: #40726c;
-    }
+.signin {
+  padding: 0.5rem 1rem;
+  background-color: #35605a;
+  border-radius: 1rem;
+  color: white !important;
+  transition: all 0.3s;
+  &:hover {
+    background-color: #40726c;
+  }
 }
