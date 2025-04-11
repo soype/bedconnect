@@ -22,28 +22,30 @@ export default function Catalogue() {
     }, [isLogged]);
 
     return(
-        <div className={styles.catalogue__container}>
-            <table className={styles.catalogueTable}>
-                <thead>
-                    <tr>
-                        <th>PRODUCTO</th>
-                        <th>Precio x unidad</th>
-                        <th className={styles.verticalText}>SIN GLUTEN</th>
-                        <th className={styles.verticalText}>VEGANO</th>
-                        <th className={styles.verticalText}>ORGÁNICO</th>
-                        <th className={styles.verticalText}>KETO</th>
-                        <th className={styles.verticalText}>APLV</th>
-                        <th className={styles.verticalText}>SIN AZÚCAR AGREGADA</th>
-                        <th className={styles.verticalText}>SIN CONSERVANTES</th>
-                        <th>Vto. <br></br> (meses)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {products.map((product) => (
-                    <CatalogueItem product={product} userCategory={'a'} key={product.id} />
-                    ))}
-                </tbody>
-            </table>
+        <div className={styles.catalogue}>
+            <div className={styles.catalogue__container}>
+                <table className={styles.catalogueTable}>
+                    <thead>
+                        <tr>
+                            <th>PRODUCTO</th>
+                            <th>Precio x unidad</th>
+                            <th className={styles.verticalText}>SIN GLUTEN</th>
+                            <th className={styles.verticalText}>VEGANO</th>
+                            <th className={styles.verticalText}>ORGÁNICO</th>
+                            <th className={styles.verticalText}>KETO</th>
+                            <th className={styles.verticalText}>APLV</th>
+                            <th className={styles.verticalText}>SIN AZÚCAR AGREGADA</th>
+                            <th className={styles.verticalText}>SIN CONSERVANTES</th>
+                            <th>Vto. <br></br> (meses)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {products.map((product) => (
+                        <CatalogueItem product={product} userCategory={'a'} key={product.id} />
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
         )
 }

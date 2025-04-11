@@ -1,15 +1,26 @@
 .verticalText {
-    writing-mode: vertical-lr;
-    text-orientation: mixed;
-    white-space: nowrap;
-    padding: 10px 5px;
-    height: 200px;
-    @media(max-width: 768px) {
-        display: none;
-    }
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  white-space: nowrap;
+  padding: 10px 5px;
+  height: 200px;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
-.catalogueTable{
+.catalogueTable {
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.catalogue {
+  width: 100%;
+  &__container {
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
     width: 100%;
-    padding: 0 2rem;
+    margin: auto;
+  }
 }
