@@ -28,7 +28,7 @@ export default function CatalogueForm({product}) {
             newCart[index].amount = newAmount;
             setCart(newCart);
         }else{
-            setCart([...cart, {id: product.id, amount: newAmount}]);
+            setCart([...cart, {id: product.id, productDetails: product, amount: newAmount}]);
         }
         
     }

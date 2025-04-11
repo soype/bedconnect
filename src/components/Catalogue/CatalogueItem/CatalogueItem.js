@@ -16,11 +16,7 @@ export default function CatalogueItem({ product, userCategory }) {
             default: return product.price_a;
         }
     };
-    if(product.id === 1){
-        console.log(product)
-    }
 
-    // Me aseguro que el precio esté ok o que sea 0.
     const price = getPrice();
     const formattedPrice = price
 
