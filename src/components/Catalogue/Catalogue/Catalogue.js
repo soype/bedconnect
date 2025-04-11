@@ -4,10 +4,13 @@ import styles from './Catalogue.module.scss'
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import CatalogueItem from '../CatalogueItem/CatalogueItem';
+import CatalogueSearch from '../CatalogueSearch/CatalogueSearch';
 
 export default function Catalogue() {
 
     const [products, setProducts] = useState([]);
+    const [updatedList, setUpdatedList] = useState([]);
+    const [hasSearched, setHasSearched] = useState(false);
     const isLogged = useAuth().isLogged;
 
     useEffect(() => {
@@ -17,12 +20,28 @@ export default function Catalogue() {
             const data = await response.json();
             // console.log(data);
             setProducts(data);
+            setUpdatedList(data);
         };
         fetchData();
-    }, [isLogged]);
+    }, []);
+
+    const updateListHandler = (parameter) => {
+        if(parameter.length < 1){
+            setUpdatedList(products);
+            setHasSearched(false);
+            return;
+        }
+        const filtered = products.filter(item => 
+            item.name.toLowerCase().includes(parameter.toLowerCase())
+        );
+        setHasSearched(true);
+        console.log(filtered);
+        setUpdatedList(filtered);
+    }
 
     return(
         <div className={styles.catalogue}>
+            <CatalogueSearch updateList={updateListHandler} hasSearched={hasSearched}></CatalogueSearch>
             <div className={styles.catalogue__container}>
                 <table className={styles.catalogueTable}>
                     <thead>
@@ -40,7 +59,7 @@ export default function Catalogue() {
                         </tr>
                     </thead>
                     <tbody>
-                        {products.map((product) => (
+                        {updatedList.map((product) => (
                         <CatalogueItem product={product} userCategory={'a'} key={product.id} />
                         ))}
                     </tbody>
