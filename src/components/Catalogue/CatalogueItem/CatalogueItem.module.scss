@@ -1,5 +1,19 @@
+.catalogueItem{
+    td{
+        align-content: start;
+        text-align: center;        
+    }
+    .name{
+        text-align: left;
+    }
+}
+
 .price{
     text-align: center;
+}
+
+.name{
+    max-width: 400px;
 }
 
 .check{
