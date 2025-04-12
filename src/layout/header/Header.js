@@ -29,7 +29,7 @@ export default function Header() {
                         <li><Link href="/">Home</Link></li>
                         {auth.isLogged && <li><Link href="/catalogue">Catalogue</Link></li>}
                         {/* <li><Link href="/dashboard" className={styles.signin}>Dashboard</Link></li> */}
-                        { auth.isLogged ? <li>Cart: {amount}</li> : <li><Link href="/signin" className={styles.signin}>Sign in</Link></li>}
+                        { auth.isLogged ? <li><Link className={styles.cart} href="/cart">Cart: {amount}</Link></li> : <li><Link href="/signin" className={styles.signin}>Sign in</Link></li>}
                     </ul>
                 </div>
             </nav>
