@@ -50,7 +50,7 @@ export async function POST(request) {
     }
 
     // Secure token generation
-    const sessionToken = randomBytes(32).toString('hex'); // Now using properly imported crypto
+    const sessionToken = randomBytes(32).toString('hex');
 
     return new Response(
       JSON.stringify({ 

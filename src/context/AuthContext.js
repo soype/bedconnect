@@ -7,19 +7,24 @@ const AuthContext = createContext()
 export default function AuthProvider ({children}) {
 
   const [isLogged, setIsLogged] = useState(false);
+  const [session, setSession] = useState(null);
 
   useEffect(() => {
-    const session = document.cookie
-      .split(";")
-      .map((cookie) => cookie.trim()) // Trim spaces from each cookie
-      .find((cookie) => cookie.startsWith("sessionToken="));
-    if (session) {
+    const cookies = document.cookie.split(';');
+    const sessionCookie = cookies.find(cookie => 
+      cookie.trim().startsWith('sessionToken=')
+    );
+    if (sessionCookie) {
+      setSession(sessionCookie.split("=")[1]);
       setIsLogged(true);
+    }else{
+      setSession(null);
+      setIsLogged(false);
     }
   }, [isLogged]);
 
   return (
-    <AuthContext.Provider value={{isLogged, setIsLogged}}>
+    <AuthContext.Provider value={{isLogged, setIsLogged, session}}>
         {children}
     </AuthContext.Provider>
   )
