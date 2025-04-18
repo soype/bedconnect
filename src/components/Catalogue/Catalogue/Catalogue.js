@@ -10,7 +10,6 @@ export default function Catalogue() {
 
     const [products, setProducts] = useState([]);
     const [updatedList, setUpdatedList] = useState([]);
-    const [hasSearched, setHasSearched] = useState(false);
     const isLogged = useAuth().isLogged;
 
     useEffect(() => {
@@ -28,13 +27,11 @@ export default function Catalogue() {
     const updateListHandler = (parameter) => {
         if(parameter.length < 1){
             setUpdatedList(products);
-            setHasSearched(false);
             return;
         }
         const filtered = products.filter(item => 
             item.name.toLowerCase().includes(parameter.toLowerCase())
         );
-        setHasSearched(true);
         console.log(filtered);
         setUpdatedList(filtered);
     }
@@ -42,12 +39,12 @@ export default function Catalogue() {
     return(
         <div className={styles.catalogue}>
             <div className={styles.catalogue__container}>
-                <CatalogueSearch updateList={updateListHandler} hasSearched={hasSearched}></CatalogueSearch>
+                <CatalogueSearch updateList={updateListHandler}></CatalogueSearch>
                 <table className={styles.catalogueTable}>
                     <thead>
                         <tr>
-                            <th>PRODUCTO</th>
-                            <th>Precio x unidad</th>
+                            <th className={styles.thBottom}>PRODUCTO</th>
+                            <th className={styles.thBottom}>Precio x unidad</th>
                             <th className={styles.verticalText}>AGREGAR</th>
                             <th className={styles.verticalText}>SIN GLUTEN</th>
                             <th className={styles.verticalText}>VEGANO</th>
@@ -56,7 +53,7 @@ export default function Catalogue() {
                             <th className={styles.verticalText}>APLV</th>
                             <th className={styles.verticalText}>SIN AZÚCAR AGREGADA</th>
                             <th className={styles.verticalText}>SIN CONSERVANTES</th>
-                            <th>Vto. <br></br> (meses)</th>
+                            <th className={styles.thBottom}>Vto. <br></br> (meses)</th>
                         </tr>
                     </thead>
                     <tbody>

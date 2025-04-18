@@ -23,7 +23,7 @@ export default function CatalogueItem({ product, userCategory }) {
 
     return (
         <tr className={styles.catalogueItem}>
-            <td>{product.name}</td>
+            <td className={styles.name}>{product.name}</td>
             <td className={styles.price}>{formattedPrice}</td>
             <CatalogueForm product={product}></CatalogueForm>
             <td className={styles.check}>{product.gluten ? '✓' : '-'}</td>

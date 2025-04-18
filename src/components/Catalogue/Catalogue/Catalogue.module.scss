@@ -1,17 +1,30 @@
 .verticalText {
-  writing-mode: vertical-lr;
+  writing-mode: vertical-rl;
   text-orientation: mixed;
   white-space: nowrap;
+  transform: rotate(180deg);
   padding: 10px 5px;
   height: 200px;
+  text-align: left;
   @media (max-width: 768px) {
     display: none;
   }
 }
 
+.thBottom{
+    &:first-of-type{
+        text-align: left;
+    }
+    align-content: end;
+    padding-bottom: 10px;
+}
+
 .catalogueTable {
   width: 100%;
   padding: 0 2rem;
+  th{
+    cursor: pointer;
+  }
 }
 
 .catalogue {
