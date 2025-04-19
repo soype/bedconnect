@@ -18,7 +18,7 @@ export default function signin() {
       .find((cookie) => cookie.startsWith("sessionToken="));
     if (session) {
       auth.setIsLogged(true);
-      router.push("/dashboard");
+      router.push("/catalogue");
     }
   });
 

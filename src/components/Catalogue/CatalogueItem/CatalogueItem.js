@@ -2,8 +2,12 @@
 
 import styles from './CatalogueItem.module.scss';
 import CatalogueForm from '../CatalogueForm/CatalogueForm';
+import useCurrencyFormat from '@/hooks/useCurrencyFormat';
 
 export default function CatalogueItem({ product, userCategory }) {
+
+    const formatMoney = useCurrencyFormat({currency: 'ARS'});
+
     const getPrice = () => {
         switch(userCategory) {
             case 'a': return product.price_a;
@@ -23,7 +27,7 @@ export default function CatalogueItem({ product, userCategory }) {
     return (
         <tr className={styles.catalogueItem}>
             <td className={styles.name}>{product.name}</td>
-            <td className={styles.price}>{price}</td>
+            <td className={styles.price}>$ {formatMoney(price)}</td>
             <CatalogueForm product={product}></CatalogueForm>
             <td className={styles.check}>{product.gluten ? '✓' : '-'}</td>
             <td className={styles.check}>{product.vegan ? '✓' : '-'}</td>
