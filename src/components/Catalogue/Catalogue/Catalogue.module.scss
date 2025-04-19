@@ -3,8 +3,8 @@
   text-orientation: mixed;
   white-space: nowrap;
   transform: rotate(180deg);
-  padding: 10px 5px;
-  height: 200px;
+  padding: .5rem;
+  padding-bottom: 0;
   text-align: left;
   @media (max-width: 768px) {
     display: none;

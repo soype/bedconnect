@@ -51,8 +51,8 @@ export default function Catalogue() {
                             <th className={styles.verticalText}>ORGÁNICO</th>
                             <th className={styles.verticalText}>KETO</th>
                             <th className={styles.verticalText}>APLV</th>
-                            <th className={styles.verticalText}>SIN AZÚCAR AGREGADA</th>
-                            <th className={styles.verticalText}>SIN CONSERVANTES</th>
+                            <th className={styles.verticalText}>SIN AZÚCAR <br/>AGREGADA</th>
+                            <th className={styles.verticalText}>SIN<br/>CONSERVANTES</th>
                             <th className={styles.thBottom}>Vto. <br></br> (meses)</th>
                         </tr>
                     </thead>

@@ -1,7 +1,9 @@
 import styles from './CartPayment.module.scss';
 
-export default function CartPayment() {
+export default function CartPayment({cartTotal}) {
     return (
-        <div>CART PAYMENT</div>
+        <div className={styles.payment}>
+            TOTAL: <span>{cartTotal}</span>
+        </div>
     )
 }   

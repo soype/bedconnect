@@ -1,0 +1,11 @@
+.detail{
+    width: 100%;
+}
+
+.remove{
+    cursor: pointer;
+    padding: 0 5px;
+    &:hover{
+        color: red;
+    }
+}
