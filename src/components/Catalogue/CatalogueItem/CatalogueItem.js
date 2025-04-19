@@ -18,13 +18,12 @@ export default function CatalogueItem({ product, userCategory }) {
     };
 
     const price = getPrice();
-    const formattedPrice = price
 
 
     return (
         <tr className={styles.catalogueItem}>
             <td className={styles.name}>{product.name}</td>
-            <td className={styles.price}>{formattedPrice}</td>
+            <td className={styles.price}>{price}</td>
             <CatalogueForm product={product}></CatalogueForm>
             <td className={styles.check}>{product.gluten ? '✓' : '-'}</td>
             <td className={styles.check}>{product.vegan ? '✓' : '-'}</td>

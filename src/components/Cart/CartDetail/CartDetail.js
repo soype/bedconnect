@@ -1,8 +1,10 @@
 'use client'
 
 import styles from './CartDetail.module.scss';
+import useCurrencyFormat from '@/hooks/useCurrencyFormat';
 
 export default function CartDetail({cart, handleRemove}) {
+
 
     return (
         <div className={styles.detail}>
@@ -21,12 +23,14 @@ function CartDetailItem({item, handleRemove}) {
         handleRemove(item);
     }
 
+    const formatMoney = useCurrencyFormat({currency: 'ARS'});
+
     return(
         <div key={item.id}>
             <div className={styles.remove} onClick={removeHandler}>X</div>
             <div>{item.productDetails.name}</div>
             <div>{item.amount} UNIDADES</div>
-            <div>{item.productDetails.cost * item.amount}</div>
+            <div>$ {formatMoney(item.productDetails.cost * item.amount)}</div>
         </div>
     )
 }
